@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "firstdemo2": {
+    "vision-ui-dashboard-pro-ng-zorro": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/firstdemo2",
+            "outputPath": "dist/vision-ui-dashboard-pro-ng-zorro",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "firstdemo2:build:production"
+              "browserTarget": "vision-ui-dashboard-pro-ng-zorro:build:production"
             },
             "development": {
-              "browserTarget": "firstdemo2:build:development"
+              "browserTarget": "vision-ui-dashboard-pro-ng-zorro:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "firstdemo2:build"
+            "browserTarget": "vision-ui-dashboard-pro-ng-zorro:build"
           }
         },
         "test": {
