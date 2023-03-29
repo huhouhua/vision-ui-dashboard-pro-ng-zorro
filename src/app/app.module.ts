@@ -1,4 +1,6 @@
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,64 +16,31 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 
-import { TwoerComponent } from './pages/twoer/twoer.component';
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-import { NzPopoverModule } from 'ng-zorro-antd/popover';
-import { NzMessageModule } from 'ng-zorro-antd/message';
-import { NzTableModule } from 'ng-zorro-antd/table';
-import { NzSliderModule } from 'ng-zorro-antd/slider';
-import { NzSpinModule } from 'ng-zorro-antd/spin';
-import { NzCardModule } from 'ng-zorro-antd/card';
-import {NzDividerModule} from 'ng-zorro-antd/divider'
-import {NzBreadCrumbModule} from 'ng-zorro-antd/breadcrumb'
 
-import {NzSelectModule  } from 'ng-zorro-antd/select';
-import {NzInputModule  } from 'ng-zorro-antd/input';
-import {NzInputNumberModule  } from 'ng-zorro-antd/input-number';
-
-import { CpTableComponent } from './pages/table/cp-table/cp-table.component';
-import { Table1Component } from './pages/table/table1/table1.component';
-import { Table2Component } from './pages/table/table2/table2.component';
+import { SharedModule } from '../app/shared/shared.module';
+import { ApplicationModule } from './pages/application/application.module';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
-    TwoerComponent,
-    Table1Component,
-    CpTableComponent,
-    Table2Component,
   ],
   imports: [
-    NzButtonModule,
-    NzGridModule,
-    NzAvatarModule,
-    NzPopoverModule,
-    NzMessageModule,
+    CommonModule,
+
     NzMenuModule,
-    NzTableModule,
     NzLayoutModule,
-    NzMenuModule,
-    NzSpinModule,
-    NzSliderModule,
-    NzCardModule,
-    NzSelectModule,
-    NzInputModule,
-    NzInputNumberModule,
-    NzDividerModule,
-    NzBreadCrumbModule,
-    
+
     AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
-    HttpClientModule,
-    //  SharedModule,
+
+    ApplicationModule,
+    SharedModule,
   ],
   providers: [
 
@@ -79,16 +48,8 @@ registerLocaleData(zh);
   ],
   bootstrap: [AppComponent],
   exports:[
-    NzSliderModule,
-    NzSpinModule,
-    NzGridModule,
-    NzLayoutModule,
-    NzButtonModule,
     NzMenuModule,
-    NzAvatarModule,
-    NzPopoverModule,
-    NzMessageModule,
-    NzTableModule,
+    NzLayoutModule,
   ]
 })
 export class AppModule { }
