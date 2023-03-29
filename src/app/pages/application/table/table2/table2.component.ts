@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from '../table1/table1.component';
 import { Option } from 'src/app/shared/commonType';
+import { NzMessageService } from 'ng-zorro-antd/message';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 @Component({
   selector: 'app-table2',
@@ -8,7 +11,10 @@ import { Option } from 'src/app/shared/commonType';
   styleUrls: ['./table2.component.less']
 })
 export class Table2Component implements OnInit {
-  listOfData: readonly Data[] = [];
+  constructor(private modal:NzModalService){
+
+  }
+  listOfData:  Data[] = [];
   listOfCurrentPageData: readonly Data[] = [];
   typeOptions: Option[]= [{name:"All",value:0},{name:"Product",value:1},{name:"Component",value:2},{name:"middleware",value:3}];
 
@@ -33,6 +39,24 @@ export class Table2Component implements OnInit {
   }
   onCurrentPageDataChange(listOfCurrentPageData: readonly Data[]): void {
     this.listOfCurrentPageData = listOfCurrentPageData;
+  }
+
+  onEdit(data:Data):void{
+      const ref = this.modal.create({
+        nzTitle:'Edit',
+        nzWidth:'500px',
+        nzContent:EditProductComponent,
+        nzComponentParams:{
+          data:data
+        },
+        nzOnOk:()=>{
+
+        },
+
+      });
+  }
+  onDelete(id:number):void{
+    this.listOfData=this.listOfData.filter(q=>q.id!==id);
   }
 }
 

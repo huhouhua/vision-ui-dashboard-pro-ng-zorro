@@ -9,6 +9,8 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzSliderModule } from 'ng-zorro-antd/slider';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzPopoverModule } from 'ng-zorro-antd/popover';
+import {  NzFormModule } from 'ng-zorro-antd/form';
+
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzCardModule } from 'ng-zorro-antd/card';
@@ -17,7 +19,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
-
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { IconsProviderModule } from '../icons-provider.module';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 
 @NgModule({
@@ -35,18 +39,24 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
       NzInputNumberModule,
       NzDividerModule,
       NzBreadCrumbModule,
-
+      NzModalModule,
       
       NzButtonModule,
       NzGridModule,
       NzAvatarModule,
       NzPopoverModule,
       NzMessageModule,
+      NzPopconfirmModule,
       NzTableModule,
-      
+       NzFormModule,
+
+      IconsProviderModule,
     ],
     declarations: [],
     exports: [
+      
+      ReactiveFormsModule,
+
       NzSpinModule,
       NzSliderModule,
       NzCardModule,
@@ -56,12 +66,18 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
       NzDividerModule,
       NzBreadCrumbModule,
 
+
       NzButtonModule,
       NzGridModule,
       NzAvatarModule,
       NzPopoverModule,
       NzMessageModule,
+      NzPopconfirmModule,
       NzTableModule,
+      NzModalModule,
+      NzFormModule,
+
+      IconsProviderModule
     ],
     providers: [],
   })

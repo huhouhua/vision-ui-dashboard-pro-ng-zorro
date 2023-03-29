@@ -37,8 +37,7 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    IconsProviderModule,
-
+    
     ApplicationModule,
     SharedModule,
   ],

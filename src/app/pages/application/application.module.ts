@@ -8,6 +8,10 @@ import { Table1Component } from "./table/table1/table1.component";
 import Table3Component from "./table/table3/table3.component";
 import { Table4Component } from './table/table4/table4.component';
 import { Table2Component } from './table/table2/table2.component';
+import { EditProductComponent } from './table/table2/components/edit-product/edit-product.component';
+import { CreateProductComponent } from './table/table2/components/create-product/create-product.component';
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
  declarations:[
@@ -17,8 +21,11 @@ import { Table2Component } from './table/table2/table2.component';
     Table3Component,
     Table4Component,
     Table2Component,
+    EditProductComponent,
+    CreateProductComponent,
  ],
  imports:[
+
     CommonModule,
     SharedModule,
     FormsModule
