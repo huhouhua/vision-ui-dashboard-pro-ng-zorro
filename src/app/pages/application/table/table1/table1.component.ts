@@ -79,7 +79,7 @@ export class Table1Component implements OnInit {
   }
   
 }
-export interface Data {
+ export interface Data {
   id: number;
   name: string;
   age: number;

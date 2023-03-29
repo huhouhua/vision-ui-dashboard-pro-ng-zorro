@@ -1,35 +1,28 @@
-<ng-template #indicatorTemplate>
-  <span nz-icon nzType="loading" class="ant-spin-dot ant-spin-dot-spin"></span>
-</ng-template>
-<nz-spin [nzSpinning]="loading"  [nzIndicator]="indicatorTemplate" [nzSize]="'large'" >
-  
-  <nz-table
+<div class="send-request">
+</div>
+<nz-table
+  #rowSelectionTable
+  nzShowPagination
   nzShowSizeChanger
-  [nzData]="listOfRandomUser"
-  [nzFrontPagination]="false"
-  [nzTotal]="total"
-  [nzPageSize]="pageSize"
-  [nzPageIndex]="pageIndex"
-  (nzQueryParams)="onQueryParamsChange($event)"
-  >
+  [nzData]="listOfData"
+  (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+>
   <thead>
     <tr>
-      <th nzColumnKey="name" [nzSortFn]="true">Name</th>
-      <th nzColumnKey="gender" [nzFilters]="filterGender" [nzFilterFn]="true">Gender</th>
-      <th nzColumnKey="email" [nzSortFn]="true">Email</th>
+      <th>Id</th>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of listOfRandomUser">
-      <td>{{ data.name.first }} {{ data.name.last }}</td>
-      <td>{{ data.gender }}</td>
-      <td>{{ data.email }}</td>
+    <tr *ngFor="let data of rowSelectionTable.data">
+      <td>{{ data.id }}</td>
+      <td>{{ data.type.name }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.age }}</td>
+      <td>{{ data.address }}</td>
     </tr>
   </tbody>
-  </nz-table>
-</nz-spin>
-
-
-
-
-  
+</nz-table>

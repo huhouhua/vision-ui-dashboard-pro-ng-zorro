@@ -1,8 +1,6 @@
-
 import { Component, OnInit } from '@angular/core';
-import { NzTableQueryParams } from 'ng-zorro-antd/table';
+import { Data } from '../table1/table1.component';
 import { Option } from 'src/app/shared/commonType';
-import { RandomUser, RandomUserService } from './random-user-service';
 
 @Component({
   selector: 'app-table2',
@@ -10,56 +8,31 @@ import { RandomUser, RandomUserService } from './random-user-service';
   styleUrls: ['./table2.component.less']
 })
 export class Table2Component implements OnInit {
-  loading = true;
-  total = 1;
-  listOfRandomUser: RandomUser[] = [];
-  pageSize = 10;
-  pageIndex = 1;
-  filterGender = [
-    { text: 'male', value: 'male' },
-    { text: 'female', value: 'female' }
-  ];
-
-  loadDataFromServer(
-    pageIndex: number,
-    pageSize: number,
-    sortField: string | null,
-    sortOrder: string | null,
-    filter: Array<{ key: string; value: string[] }>
-  ): void {
-    this.loading = true;
-    this.randomUserService.getUsers(pageIndex, pageSize, sortField, sortOrder, filter).subscribe(data => {
-      this.loading = false;
-      this.total = 200; // mock the total data here
-      this.listOfRandomUser = data.results;
-    });
-  }
-
-  onQueryParamsChange(params: NzTableQueryParams): void {
-    console.log(params);
-    const { pageSize, pageIndex, sort, filter } = params;
-    const currentSort = sort.find(item => item.value !== null);
-    const sortField = (currentSort && currentSort.key) || null;
-    const sortOrder = (currentSort && currentSort.value) || null;
-    this.loadDataFromServer(pageIndex, pageSize, sortField, sortOrder, filter);
-  }
-
-  constructor(private randomUserService: RandomUserService) {}
+  listOfData: readonly Data[] = [];
+  listOfCurrentPageData: readonly Data[] = [];
+  typeOptions: Option[]= [{name:"All",value:0},{name:"Product",value:1},{name:"Component",value:2},{name:"middleware",value:3}];
 
   ngOnInit(): void {
-    this.loadDataFromServer(this.pageIndex, this.pageSize, null, null, []);
+    this.listOfData = new Array(100).fill(0).map((_, index) => ({
+      id: index,
+      name: `Edward King ${index}`,
+      age: 32,
+      type:this.getType(index),
+      address: `London, Park Lane no. ${index}`,
+      disabled: index % 2 === 0
+    }));
   }
-
-  
+  getType(index:number):Option{
+    const n = index.toString();
+    if(n.indexOf('3')){
+      return this.typeOptions[1];
+    }else if (n.indexOf('8')){
+      return this.typeOptions[2];
+    }
+    return   this.typeOptions[3];
+  }
+  onCurrentPageDataChange(listOfCurrentPageData: readonly Data[]): void {
+    this.listOfCurrentPageData = listOfCurrentPageData;
+  }
 }
-export interface Data {
-  id: number;
-  name: string;
-  age: number;
-  type:Option;
-  address: string;
-  disabled: boolean;
-}
-
-
 

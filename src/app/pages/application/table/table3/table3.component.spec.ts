@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CpTableComponent } from './cp-table.component';
+import Table3Component from './table3.component';
 
-describe('CpTableComponent', () => {
-  let component: CpTableComponent;
-  let fixture: ComponentFixture<CpTableComponent>;
+describe('Table2Component', () => {
+  let component: Table3Component;
+  let fixture: ComponentFixture<Table3Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CpTableComponent ]
+      declarations: [ Table3Component ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CpTableComponent);
+    fixture = TestBed.createComponent(Table3Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
