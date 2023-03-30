@@ -3,7 +3,10 @@ import { Data } from '../table1/table1.component';
 import { Option } from 'src/app/shared/commonType';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { CreateProductComponent } from './components/create-product/create-product.component';
 
 @Component({
   selector: 'app-table2',
@@ -11,7 +14,10 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
   styleUrls: ['./table2.component.less']
 })
 export class Table2Component implements OnInit {
-  constructor(private modal:NzModalService){
+  constructor(
+    private modal:NzModalService,
+    private msg: NzMessageService,
+    private notification:NzNotificationService){
 
   }
   listOfData:  Data[] = [];
@@ -42,21 +48,36 @@ export class Table2Component implements OnInit {
   }
 
   onEdit(data:Data):void{
-      const ref = this.modal.create({
+     this.modal.create({
         nzTitle:'Edit',
-        nzWidth:'500px',
         nzContent:EditProductComponent,
         nzComponentParams:{
           data:data
         },
-        nzOnOk:()=>{
-
+        nzOnOk:(ret)=>{
+           this.notification.success("feedback!","edit success!",{nzDuration:0});
         },
 
       });
   }
+  onAdd(){
+    this.modal.create({
+      nzTitle:'add',
+      nzContent:CreateProductComponent,
+      nzOnOk:(ret)=>{
+          const item = ret?.data;
+          item.id = this.listOfData.length+1;
+          this.listOfData.unshift(item);
+          this.listOfData=[...this.listOfData];
+
+         this.notification.success("feedback!","add success!");
+      },
+    });
+  }
   onDelete(id:number):void{
     this.listOfData=this.listOfData.filter(q=>q.id!==id);
+    this.notification.success("feedback!","delete success!");
   }
+  
 }
 

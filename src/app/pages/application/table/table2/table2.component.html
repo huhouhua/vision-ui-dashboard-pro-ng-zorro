@@ -1,6 +1,10 @@
 
 
 <div class="send-request">
+  <button nz-button [nzType]="'primary'"  (click)="onAdd()">
+    <i nz-icon nzType="plus"></i>
+    <span>Add</span>
+</button>
 </div>
 <nz-table
   #rowSelectionTable

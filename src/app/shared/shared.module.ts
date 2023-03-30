@@ -22,7 +22,8 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { IconsProviderModule } from '../icons-provider.module';
 import { NzModalModule } from 'ng-zorro-antd/modal';
-
+import { NzNotificationServiceModule } from 'ng-zorro-antd/notification';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 
 @NgModule({
     imports: [
@@ -40,6 +41,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
       NzDividerModule,
       NzBreadCrumbModule,
       NzModalModule,
+      NzNotificationModule,
+      NzNotificationServiceModule,
       
       NzButtonModule,
       NzGridModule,
@@ -75,8 +78,10 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
       NzPopconfirmModule,
       NzTableModule,
       NzModalModule,
-      NzFormModule,
+      NzNotificationModule,
+      NzNotificationServiceModule,
 
+      NzFormModule,
       IconsProviderModule
     ],
     providers: [],

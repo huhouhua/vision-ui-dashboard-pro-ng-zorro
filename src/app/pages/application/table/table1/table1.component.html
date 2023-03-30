@@ -42,7 +42,11 @@
       </nz-input-number>
       </nz-form-control>
       <nz-form-control [nzSpan]="3">
-        <button nz-button (click)="search()"  [nzLoading]="loading" [nzType]="'primary'">search</button>
+        <button nz-button (click)="search()"  [nzLoading]="loading" [nzType]="'primary'">
+          <i nz-icon nzType="search"></i>
+         
+          <span>search</span>
+          </button>
       </nz-form-control>
     </div>
   </form>
