@@ -58,6 +58,27 @@ export class AppComponent implements OnInit {
               icon: "",
             }
           ],
+        },
+        {
+          name: "List",
+          icon:"",
+          isOpen: true,
+          router:"/list-custom",
+          children:[],
+          breadcrumb:[
+            {
+              name:"Applications",
+              order:0,
+              router:"",
+              icon: "appstore",
+            },
+            {
+              name:"List",
+              order:1,
+              router:"",
+              icon: "",
+            }
+          ],
         }
       ]
     };

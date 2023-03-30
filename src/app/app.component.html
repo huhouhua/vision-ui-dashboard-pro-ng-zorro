@@ -17,7 +17,8 @@
           <li *ngFor="let menuItem of listOfMenu" nz-submenu [nzOpen]="menuItem.isOpen"  [nzTitle]="menuItem.name"  [nzIcon]="menuItem.icon">
             <ul *ngIf="menuItem.children!= null && menuItem.children.length>0">
 
-              <li *ngFor="let childItem of menuItem.children" nz-menu-item nzMatchRouter class="custom-menu-item"  >
+              <!-- class="custom-menu-item" -->
+              <li *ngFor="let childItem of menuItem.children" nz-menu-item nzMatchRouter  >
                 <a [routerLink]="childItem.router" (click)="onRouter(childItem)" >{{ childItem.name }}</a>
               </li>
             </ul>

@@ -12,6 +12,10 @@ import { EditProductComponent } from './table/table2/components/edit-product/edi
 import { CreateProductComponent } from './table/table2/components/create-product/create-product.component';
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { List1Component } from './list/list1/list1.component';
+import { List2Component } from './list/list2/list2.component';
+import { List3Component } from './list/list3/list3.component';
+import { CpListComponent } from './list/cp-list.component';
 
 @NgModule({
  declarations:[
@@ -23,6 +27,10 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     Table2Component,
     EditProductComponent,
     CreateProductComponent,
+    List1Component,
+    List2Component,
+    List3Component,
+    CpListComponent,
  ],
  imports:[
 

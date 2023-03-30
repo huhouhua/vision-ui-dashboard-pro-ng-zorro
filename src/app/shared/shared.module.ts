@@ -12,6 +12,10 @@ import { NzPopoverModule } from 'ng-zorro-antd/popover';
 import {  NzFormModule } from 'ng-zorro-antd/form';
 
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzListModule  } from 'ng-zorro-antd/list';
+import { NzSkeletonModule  } from 'ng-zorro-antd/skeleton';
+
+
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzSelectModule } from 'ng-zorro-antd/select';
@@ -23,7 +27,9 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { IconsProviderModule } from '../icons-provider.module';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzNotificationServiceModule } from 'ng-zorro-antd/notification';
+
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+
 
 @NgModule({
     imports: [
@@ -52,7 +58,8 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
       NzPopconfirmModule,
       NzTableModule,
        NzFormModule,
-
+       NzListModule,
+       NzSkeletonModule,
       IconsProviderModule,
     ],
     declarations: [],
@@ -77,6 +84,9 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
       NzMessageModule,
       NzPopconfirmModule,
       NzTableModule,
+      NzListModule,
+      NzSkeletonModule,
+      
       NzModalModule,
       NzNotificationModule,
       NzNotificationServiceModule,
